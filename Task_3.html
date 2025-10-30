@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Greeting App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .input-section {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        input[type="text"] {
+            padding: 12px 15px;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 200px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1rem;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .boxes-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .box {
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .red {
+            background-color: #e8e8e8;
+            color: #333;
+        }
+
+        .blue {
+            background-color: #e8e8e8;
+            color: #333;
+        }
+
+        .green {
+            background-color: #e8e8e8;
+            color: #333;
+        }
+
+        .yellow {
+            background-color: #e8e8e8;
+            color: #333;
+        }
+
+        /* Active state when clicked */
+        .box.active-red {
+            background-color: #ff4444;
+            color: white;
+            border-color: #cc0000;
+        }
+
+        .box.active-blue {
+            background-color: #4444ff;
+            color: white;
+            border-color: #0000cc;
+        }
+
+        .box.active-green {
+            background-color: #44ff44;
+            color: #333;
+            border-color: #00cc00;
+        }
+
+        .box.active-yellow {
+            background-color: #ffff44;
+            color: #333;
+            border-color: #cccc00;
+        }
+
+        .info-text {
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            input[type="text"] {
+                width: 100%;
+            }
+
+            .boxes-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .box {
+                padding: 20px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="greeting">Hello</h1>
+        </header>
+
+        <div class="input-section">
+            <input type="text" id="nameInput" placeholder="Enter your name">
+            <button id="greetBtn">Greet Me!</button>
+        </div>
+
+        <div class="boxes-section">
+            <div class="box red" id="redBox">Red</div>
+            <div class="box blue" id="blueBox">Blue</div>
+            <div class="box green" id="greenBox">Green</div>
+            <div class="box yellow" id="yellowBox">Yellow</div>
+        </div>
+
+        <p class="info-text">Click on boxes to change their color or enter your name and click "Greet Me!"</p>
+    </div>
+
+    <script>
+        // Get elements from the DOM
+        const greetingText = document.getElementById('greeting');
+        const nameInput = document.getElementById('nameInput');
+        const greetBtn = document.getElementById('greetBtn');
+        const redBox = document.getElementById('redBox');
+        const blueBox = document.getElementById('blueBox');
+        const greenBox = document.getElementById('greenBox');
+        const yellowBox = document.getElementById('yellowBox');
+
+        // Greet button functionality
+        greetBtn.addEventListener('click', function() {
+            const name = nameInput.value;
+            
+            if (name.trim() === '') {
+                greetingText.textContent = 'Hello';
+            } else {
+                greetingText.textContent = 'Hello, ' + name;
+            }
+            
+            nameInput.value = '';
+        });
+
+        // Allow Enter key to trigger greeting
+        nameInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                greetBtn.click();
+            }
+        });
+
+        // Red box click handler
+        redBox.addEventListener('click', function() {
+            redBox.classList.toggle('active-red');
+        });
+
+        // Blue box click handler
+        blueBox.addEventListener('click', function() {
+            blueBox.classList.toggle('active-blue');
+        });
+
+        // Green box click handler
+        greenBox.addEventListener('click', function() {
+            greenBox.classList.toggle('active-green');
+        });
+
+        // Yellow box click handler
+        yellowBox.addEventListener('click', function() {
+            yellowBox.classList.toggle('active-yellow');
+        });
+    </script>
+</body>
+</html>
