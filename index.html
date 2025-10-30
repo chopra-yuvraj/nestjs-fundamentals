@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuteDude - Your Learning Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        .hero {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        figure {
+            margin: 20px;
+        }
+        
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #666;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        table th {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        table tr:hover {
+            background-color: #f0f0f0;
+        }
+        
+        aside {
+            background-color: #f0f4ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        aside h4 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+        
+        .media-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        audio, video {
+            max-width: 100%;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        
+        form {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1em;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        button {
+            background-color: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #764ba2;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+        
+        footer h4 {
+            margin-bottom: 15px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header>
+        <div class="container">
+            <h1>Welcome to <strong>TuteDude</strong></h1>
+            <p>Your <em>comprehensive</em> learning platform for <strong>web development</strong> and <strong>programming</strong></p>
+            
+            <!-- NAVIGATION MENU -->
+            <nav>
+                <a href="#about">About</a>
+                <a href="#menu">Menu</a>
+                <a href="#trivia">Trivia</a>
+                <a href="#extras">Extras</a>
+                <a href="#feedback">Feedback</a>
+            </nav>
+            
+            <!-- HERO IMAGE WITH CAPTION -->
+            <figure class="hero">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=400&fit=crop" alt="Online learning platform with students collaborating">
+                <figcaption>TuteDude brings interactive learning to everyone, everywhere</figcaption>
+            </figure>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <h2>About TuteDude</h2>
+            <p>TuteDude is a <strong>revolutionary learning platform</strong> designed to make programming and web development <em>accessible to everyone</em>. Our mission is to provide <strong>high-quality education</strong> through interactive tutorials, hands-on projects, and a supportive community.</p>
+            
+            <p>We believe that learning should be:</p>
+            <ul>
+                <li><strong>Interactive:</strong> Engage with live coding examples and real-time feedback</li>
+                <li><strong>Practical:</strong> Build actual projects from day one</li>
+                <li><strong>Supportive:</strong> Connect with mentors and peers in our community</li>
+                <li><strong>Affordable:</strong> Access quality education without breaking the bank</li>
+            </ul>
+            
+            <blockquote>
+                "Education is the most powerful tool you can use to change the world." – Nelson Mandela
+                <cite>— Inspiring our mission at TuteDude</cite>
+            </blockquote>
+        </section>
+
+        <!-- MENU SECTION -->
+        <section id="menu">
+            <h2>Our Learning Paths</h2>
+            <p>Explore our comprehensive menu of courses and learning modules:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Title</th>
+                        <th>Difficulty Level</th>
+                        <th>Duration</th>
+                        <th>Topics Covered</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HTML & CSS Fundamentals</td>
+                        <td>Beginner</td>
+                        <td>4 weeks</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>• HTML5 Semantics</td>
+                                </tr>
+                                <tr>
+                                    <td>• CSS Flexbox & Grid</td>
+                                </tr>
+                                <tr>
+                                    <td>• Responsive Design</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript Essentials</td>
+                        <td>Beginner to Intermediate</td>
+                        <td>6 weeks</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>• Variable & Data Types</td>
+                                </tr>
+                                <tr>
+                                    <td>• DOM Manipulation</td>
+                                </tr>
+                                <tr>
+                                    <td>• Async JavaScript</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Full Stack Development</td>
+                        <td>Intermediate to Advanced</td>
+                        <td>12 weeks</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>• Frontend Frameworks</td>
+                                </tr>
+                                <tr>
+                                    <td>• Backend APIs</td>
+                                </tr>
+                                <tr>
+                                    <td>• Database Design</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Web Security & Best Practices</td>
+                        <td>Advanced</td>
+                        <td>8 weeks</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>• Security Protocols</td>
+                                </tr>
+                                <tr>
+                                    <td>• Authentication & Auth</td>
+                                </tr>
+                                <tr>
+                                    <td>• Deployment Practices</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- TRIVIA SECTION -->
+        <section id="trivia">
+            <h2>Fun Facts & Trivia</h2>
+            <p>Did you know? Here are some interesting facts about web development and learning:</p>
+            
+            <aside>
+                <h4>Interesting Fact #1</h4>
+                <p>The first website ever created was <strong>http://info.cern.ch/</strong>, built by Tim Berners-Lee in 1989 at CERN. It's still online today!</p>
+            </aside>
+            
+            <aside>
+                <h4>Interesting Fact #2</h4>
+                <p>JavaScript was created in just <em>10 days</em> by Brendan Eich in 1995, and it's now one of the most popular programming languages in the world.</p>
+            </aside>
+            
+            <aside>
+                <h4>Interesting Fact #3</h4>
+                <p>Over <strong>5 billion devices</strong> are estimated to be connected to the internet today. Web development skills are more valuable than ever!</p>
+            </aside>
+            
+            <aside>
+                <h4>Interesting Fact #4</h4>
+                <p>CSS stands for <strong>Cascading Style Sheets</strong>, and the first version was released in <em>1996</em> by Håkon Wium Lie. Modern CSS is incredibly powerful and flexible.</p>
+            </aside>
+        </section>
+
+        <!-- EXTRAS SECTION -->
+        <section id="extras">
+            <h2>Extras & Media</h2>
+            <p>Explore multimedia content to enhance your learning experience:</p>
+            
+            <h3>Tutorial Videos</h3>
+            <div class="media-container">
+                <video controls width="400">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <h3>Podcast Episodes</h3>
+            <div class="media-container">
+                <p><em>Listen to our latest podcast episode about web development trends:</em></p>
+                <audio controls>
+                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            
+            <h3>Learning Resources</h3>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f70504eef?w=600&h=300&fit=crop" alt="Developer workspace with code">
+                <figcaption>Modern development setup for productive learning</figcaption>
+            </figure>
+        </section>
+
+        <!-- FEEDBACK FORM -->
+        <section id="feedback">
+            <h2>Your Feedback Matters</h2>
+            <p>We'd love to hear from you! Please share your experience with TuteDude:</p>
+            
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="course">Which course are you interested in?</label>
+                    <select id="course" name="course" required>
+                        <option value="">-- Select a course --</option>
+                        <option value="html-css">HTML & CSS Fundamentals</option>
+                        <option value="javascript">JavaScript Essentials</option>
+                        <option value="fullstack">Full Stack Development</option>
+                        <option value="security">Web Security & Best Practices</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Your Experience Level:</label>
+                    <select id="experience" name="experience" required>
+                        <option value="">-- Select level --</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedback">Your Feedback:</label>
+                    <textarea id="feedback" name="feedback" placeholder="Tell us what you think about TuteDude..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subscribe">
+                        <input type="checkbox" id="subscribe" name="subscribe"> Subscribe to our newsletter for updates and new courses
+                    </label>
+                </div>
+                
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <h4>Contact TuteDude</h4>
+            <address>
+                <p>Email: <a href="mailto:support@tutedude.com" style="color: #667eea;">support@tutedude.com</a></p>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Address: 123 Learning Street, Education City, EC 12345</p>
+            </address>
+            
+            <hr style="margin: 20px 0; border: none; border-top: 1px solid #555;">
+            
+            <p><small>&copy; 2024 TuteDude Learning Platform. All rights reserved. | <strong>Made with ❤️ for learners everywhere</strong></small></p>
+            <p><small>Privacy Policy | Terms of Service | Contact Us</small></p>
+        </div>
+    </footer>
+</body>
+</html>
